@@ -1,0 +1,5 @@
+{
+  "framework": "nuxtjs",
+  "buildCommand": "nuxt build",
+  "installCommand": "npm install"
+}

@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Home",
+    "experiences": "Experiences",
+    "hacienda": "The Hacienda",
+    "location": "Location",
+    "book": "Book Now",
+    "admin": "Admin"
+  },
+  "home": {
+    "hero_title": "Experience the Hacienda",
+    "hero_subtitle": "100 acres of rice farming in the heart of Tolima",
+    "hero_cta": "Book Now",
+    "hero_secondary": "View Experiences",
+    "tagline": "Lérida, Tolima — The Origin of Colombian Rice"
+  },
+  "booking": {
+    "title": "Book Your Stay",
+    "step1": "Select Dates",
+    "step2": "Choose Experience",
+    "step3": "Your Details",
+    "step4": "Payment",
+    "step5": "Confirmed!",
+    "checkin": "Check-in",
+    "checkout": "Check-out",
+    "guests": "Guests",
+    "nights": "night | nights",
+    "total": "Total",
+    "continue": "Continue",
+    "back": "Back",
+    "min_nights": "Minimum stay: 2 nights",
+    "weekend_only": "Check-in on Fridays or Saturdays only",
+    "price_breakdown": "Price breakdown",
+    "price_per_night": "per night",
+    "select_sku": "Select your plan",
+    "addons": "Additional experiences",
+    "your_data": "Your contact details",
+    "name": "First name",
+    "lastname": "Last name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "country": "Country",
+    "special_notes": "Special requests",
+    "payment": "Payment method",
+    "confirm_booking": "Confirm booking",
+    "booking_code": "Booking code",
+    "confirmation_sent": "Confirmation sent to your email"
+  },
+  "otp": {
+    "title": "Verify your identity",
+    "subtitle": "How would you like to receive your code?",
+    "send": "Send code",
+    "sending": "Sending...",
+    "enter_code": "Enter your code",
+    "sent_to": "Code sent to",
+    "resend": "Resend code",
+    "resend_in": "Resend in",
+    "expires_in": "Code expires in",
+    "incorrect": "Incorrect code",
+    "expired": "Code expired. Please request a new one.",
+    "verified": "Identity verified!"
+  },
+  "experiences": {
+    "title": "Our Experiences",
+    "subtitle": "Discover life on the rice hacienda",
+    "book_experience": "Book experience",
+    "duration": "Duration",
+    "capacity": "Capacity",
+    "includes": "Includes",
+    "hours": "hour | hours"
+  },
+  "hacienda": {
+    "title": "The Hacienda",
+    "subtitle": "100 hectares of rice farming history",
+    "history_title": "The Origin of Colombian Rice",
+    "gallery": "Gallery"
+  },
+  "location": {
+    "title": "How to get here",
+    "address": "Lérida, Tolima, Colombia",
+    "from_bogota": "From Bogotá",
+    "from_ibague": "From Ibagué",
+    "directions": "Get directions"
+  },
+  "errors": {
+    "required": "This field is required",
+    "email": "Please enter a valid email",
+    "phone": "Please enter a valid phone number",
+    "min_chars": "Minimum {min} characters",
+    "generic": "Something went wrong. Please try again."
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "cop": "COP",
+    "usd": "USD"
+  }
+}

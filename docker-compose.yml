@@ -1,0 +1,137 @@
+version: '3.9'
+
+services:
+  # ─── Base de datos PostgreSQL ───────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: hacienda_postgres
+    environment:
+      POSTGRES_DB: hacienda_carmelita
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - hacienda_net
+
+  # ─── Redis (caché, rate limiting, sesiones OTP) ─────────────
+  redis:
+    image: redis:7-alpine
+    container_name: hacienda_redis
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - hacienda_net
+
+  # ─── Backend FastAPI ─────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: hacienda_backend
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/hacienda_carmelita
+      DATABASE_URL_SYNC: postgresql://postgres:postgres@postgres:5432/hacienda_carmelita
+      REDIS_URL: redis://redis:6379/0
+      ENVIRONMENT: development
+      DEBUG: "true"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - hacienda_net
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ─── Frontend Nuxt 3 ────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: hacienda_frontend
+    environment:
+      NUXT_PUBLIC_API_BASE: http://localhost:8000
+      # SSR server-side (inter-contenedor): usa NUXT_API_BASE en nuxt.config.ts
+      NUXT_API_BASE: http://backend:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.nuxt
+    depends_on:
+      - backend
+    networks:
+      - hacienda_net
+    command: npm run dev
+
+  # ─── Celery Worker ──────────────────────────────────────────
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: hacienda_celery
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/hacienda_carmelita
+      DATABASE_URL_SYNC: postgresql://postgres:postgres@postgres:5432/hacienda_carmelita
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./backend:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - hacienda_net
+    command: celery -A workers.celery_app worker --loglevel=info
+    profiles:
+      - full  # Solo se activa con: docker-compose --profile full up
+
+  # ─── Celery Beat (tareas programadas) ───────────────────────
+  celery_beat:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: hacienda_celery_beat
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/hacienda_carmelita
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - celery_worker
+    networks:
+      - hacienda_net
+    command: celery -A workers.celery_app beat --loglevel=info
+    profiles:
+      - full
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  hacienda_net:
+    driver: bridge

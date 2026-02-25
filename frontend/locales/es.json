@@ -1,0 +1,105 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "experiences": "Experiencias",
+    "hacienda": "La Hacienda",
+    "location": "Ubicación",
+    "book": "Reservar",
+    "admin": "Admin"
+  },
+  "home": {
+    "hero_title": "Vive la Hacienda",
+    "hero_subtitle": "100 hectáreas arroceras en el corazón del Tolima",
+    "hero_cta": "Reservar ahora",
+    "hero_secondary": "Ver experiencias",
+    "tagline": "Lérida, Tolima — Origen del Arroz Colombiano"
+  },
+  "booking": {
+    "title": "Reserva tu estadía",
+    "step1": "Selecciona fechas",
+    "step2": "Elige tu experiencia",
+    "step3": "Tus datos",
+    "step4": "Pago",
+    "step5": "¡Confirmado!",
+    "checkin": "Llegada",
+    "checkout": "Salida",
+    "guests": "Huéspedes",
+    "nights": "noche | noches",
+    "total": "Total",
+    "continue": "Continuar",
+    "back": "Atrás",
+    "min_nights": "Estadía mínima: 2 noches",
+    "weekend_only": "Check-in solo viernes o sábado",
+    "price_breakdown": "Desglose del precio",
+    "price_per_night": "por noche",
+    "select_sku": "Selecciona tu plan",
+    "addons": "Experiencias adicionales",
+    "your_data": "Tus datos de contacto",
+    "name": "Nombre",
+    "lastname": "Apellido",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "country": "País",
+    "special_notes": "Notas especiales",
+    "payment": "Método de pago",
+    "confirm_booking": "Confirmar reserva",
+    "booking_code": "Código de reserva",
+    "confirmation_sent": "Confirmación enviada a tu correo"
+  },
+  "otp": {
+    "title": "Verifica tu identidad",
+    "subtitle": "¿Cómo prefieres recibir tu código?",
+    "send": "Enviar código",
+    "sending": "Enviando...",
+    "enter_code": "Ingresa tu código",
+    "sent_to": "Código enviado a",
+    "resend": "Reenviar código",
+    "resend_in": "Reenviar en",
+    "expires_in": "El código expira en",
+    "incorrect": "Código incorrecto",
+    "expired": "Código expirado. Solicita uno nuevo.",
+    "verified": "¡Identidad verificada!"
+  },
+  "experiences": {
+    "title": "Nuestras Experiencias",
+    "subtitle": "Descubre la vida en la hacienda arrocera",
+    "book_experience": "Reservar experiencia",
+    "duration": "Duración",
+    "capacity": "Capacidad",
+    "includes": "Incluye",
+    "hours": "hora | horas"
+  },
+  "hacienda": {
+    "title": "La Hacienda",
+    "subtitle": "100 hectáreas de historia arrocera",
+    "history_title": "Origen del Arroz Colombiano",
+    "gallery": "Galería"
+  },
+  "location": {
+    "title": "Cómo llegar",
+    "address": "Lérida, Tolima, Colombia",
+    "from_bogota": "Desde Bogotá",
+    "from_ibague": "Desde Ibagué",
+    "directions": "Obtener indicaciones"
+  },
+  "errors": {
+    "required": "Este campo es obligatorio",
+    "email": "Ingresa un correo válido",
+    "phone": "Ingresa un teléfono válido",
+    "min_chars": "Mínimo {min} caracteres",
+    "generic": "Algo salió mal. Intenta de nuevo."
+  },
+  "common": {
+    "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "yes": "Sí",
+    "no": "No",
+    "cop": "COP",
+    "usd": "USD"
+  }
+}
