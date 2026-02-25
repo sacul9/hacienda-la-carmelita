@@ -45,7 +45,7 @@
             >
               <div class="relative h-56 overflow-hidden">
                 <img
-                  src="/img/blog-default.jpg"
+                  src="/img/hacienda-exterior-dia.jpg"
                   :alt="articulo.titulo_es"
                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />

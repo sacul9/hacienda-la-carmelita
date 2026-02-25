@@ -56,7 +56,7 @@
                 <img src="/img/hacienda-exterior-piscina.jpg" alt="Piscina de la hacienda" class="rounded-xl h-44 w-full object-cover" />
                 <img src="/img/hacienda-exterior-dia.jpg" alt="Fachada colonial de la hacienda" class="rounded-xl h-44 w-full object-cover" />
                 <img src="/img/mirador-jirafa-elefante-grupo.jpg" alt="Mirador con esculturas" class="rounded-xl h-44 w-full object-cover" />
-                <img src="/img/jardines-ninos-prado.jpg" alt="Jardines de la hacienda" class="rounded-xl h-44 w-full object-cover" />
+                <img src="/img/jardines-ninos-jugando.jpg" alt="Jardines de la hacienda" class="rounded-xl h-44 w-full object-cover" />
               </div>
             </div>
 
